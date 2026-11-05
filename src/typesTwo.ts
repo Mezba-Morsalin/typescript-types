@@ -1,3 +1,2 @@
-import { sayHello } from "./moduleTwo-config.js";
-
-sayHello()
+import "./moduleTwo-config.js"
+import "./v2-union.js"

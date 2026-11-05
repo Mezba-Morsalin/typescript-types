@@ -1,3 +1,5 @@
-export const sayHello = () => {
+const sayHello = () => {
     console.log("Welcome To TypeScript");
 }
+
+sayHello()
