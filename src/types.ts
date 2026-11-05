@@ -1,5 +1,3 @@
-const nums = ( numsOne : number , numsTwo : number) => {
-    return numsOne + numsTwo
-}
+import { nums } from "./module-config.js";
 
 console.log(nums(23, 25));
