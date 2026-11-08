@@ -30,8 +30,8 @@ console.log(userName!.length);
 
 
 interface UserDetails {
-    name : string,
-    age : number
+    name? : string,
+    age? : number
 }
 
 let user : UserDetails | null = {
@@ -39,8 +39,11 @@ let user : UserDetails | null = {
     age : 24
 }
 
+const userNames : string = user.name!
+const userAge : number = user.age!
 
-console.log(user!.name);
+console.log(userNames);
+console.log(userAge);
 
 
 interface PlayerGoals {
