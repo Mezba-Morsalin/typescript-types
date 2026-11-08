@@ -57,3 +57,10 @@ const playerGoals : PlayerGoals = {
 const countedGoals : number = playerGoals.goals!
 
 console.log(countedGoals);
+
+// Const Assertion
+
+const types = {
+    name : "Mezba",
+    age : 24
+} as const
