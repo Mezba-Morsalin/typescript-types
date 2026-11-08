@@ -2,12 +2,21 @@
 
 type Status = "pending" | "approved" | "cancelled"
 
-const someStatus : string = "pending"
+const someStatus : Status = "pending"
 
 const showStatus = (stats : Status) => {
     console.log(`The Value of Status is ${stats}`);
 }
+ showStatus(someStatus)
 
-const getStatus = showStatus(someStatus as Status)
 
-console.log(getStatus);
+
+type ExpectedStatus = 4 | 5 | 6
+
+const countStatus : number = 5
+
+const showCountStatus = (count : ExpectedStatus) => {
+    console.log(`The Count Status is ${count}`);
+}
+
+showCountStatus(countStatus as ExpectedStatus)
