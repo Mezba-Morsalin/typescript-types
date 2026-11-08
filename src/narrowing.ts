@@ -33,3 +33,29 @@ const getValue = (value :string | number) => {
 
 console.log(getValue(45.5565));
 console.log(getValue("Mezba"));
+
+// Truthiness
+
+type User = {
+    name : string,
+    age : number,
+    address : {
+        houseName : string
+    }
+} | null
+
+const user : User = {
+    name : "Mezba Morsalin",
+    age : 24,
+    address : {
+        houseName : "Monjil"
+    }
+}
+
+const getUser = (user : User) => {
+    if (user) {
+        console.log(user.address);
+    }
+}
+
+getUser(user)
