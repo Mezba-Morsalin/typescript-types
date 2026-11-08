@@ -21,3 +21,15 @@ const typeValue = (value : string | number) => {
 
 console.log(typeValue("Kamal"));
 console.log(typeValue(80));
+
+const getValue = (value :string | number) => {
+    if (typeof value === "number") {
+        return value.toFixed(1)
+    }
+    else {
+        return value
+    }
+}
+
+console.log(getValue(45.5565));
+console.log(getValue("Mezba"));
