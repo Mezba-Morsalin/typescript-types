@@ -55,7 +55,46 @@ const user : User = {
 const getUser = (user : User) => {
     if (user) {
         console.log(user.address);
+        return
     }
+    throw new Error("User Doesn't Exist")
 }
 
 getUser(user)
+
+
+type Player = {
+    name : string,
+    age : number,
+    club? : {
+        clubName : string[]
+    },
+    goals : number,
+    retired : boolean
+} | null
+
+const player : Player = {
+    name : "Neymar Jr",
+    age : 34,
+    club : {
+        clubName : ["Santos", "Barcelona", "Paris Saint Germain"]
+    },
+    goals : 80,
+    retired : true
+}
+
+const getPlayer = (player : Player) => {
+  
+        if (player) {
+            console.log(player.name);
+
+            if (player && player.club) {
+        console.log(player.club.clubName);
+    }
+    return;
+        } 
+
+    throw new Error("Player Information False")
+}
+
+getPlayer(player)
