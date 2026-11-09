@@ -60,3 +60,38 @@ const blogResponse : BlogResponse = {
 
 console.log(userResponse);
 console.log(blogResponse);
+
+
+// Recap interface generic;
+
+
+interface PlayDetails {
+    name : string,
+    age : number,
+    internationalGoals : number,
+    country : string,
+    clubs : string[]
+}
+
+interface PlayerApiResponse<T> {
+    data : T,
+    success : boolean,
+    statusCode : number
+}
+
+type PlayerResponse = PlayerApiResponse<PlayDetails>
+
+const playerResponse : PlayerResponse = {
+    success : true,
+    statusCode : 205,
+    data : {
+        name : "Neymar jr",
+        age : 34,
+        country : "Brazil",
+        internationalGoals : 80,
+        clubs : ["Santos", "Barcelona", "Paris Saint Germain"]
+    }
+}
+
+console.log(playerResponse);
+console.log(playerResponse.data);
