@@ -117,3 +117,32 @@ const printAll = (x : string | string[] | null) => {
 }
 
 printAll(null)
+
+
+// Equal narrowing
+
+const equalValue = (x : number | string , y : number | boolean) => {
+    if (x === y) {
+        console.log(x, y);
+        return
+    }
+}
+
+equalValue(5, 6)
+
+const moreEqual = (x : string | string[] | null) => {
+    if (x !== null) {
+        if (typeof x === "object") {
+            for (let value of x) {
+            console.log(value);
+        }
+        return
+        }
+        console.log(x);
+        return
+    }
+    
+        console.log("");
+}
+
+moreEqual("Mezba")
