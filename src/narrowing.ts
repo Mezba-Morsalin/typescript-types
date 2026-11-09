@@ -207,3 +207,37 @@ const dateInstance = (value : Date | string) => {
 }
 
 dateInstance(new Date("2026-11-09"))
+
+
+// Discriminated Union
+
+interface Circle {
+    kind : "circle",
+    radius : number
+}
+
+interface Square {
+    kind : "square",
+    sideLength : number
+}
+
+type Shape = Circle | Square
+
+const checkShape = (shape : Shape) => {
+    if (shape.kind === "circle") {
+        console.log(shape.radius);
+        return;
+    }
+
+    console.log(shape.sideLength);
+}
+
+checkShape({
+    kind: "circle",
+    radius: 10
+});
+
+checkShape({
+    kind: "square",
+    sideLength: 20
+});
