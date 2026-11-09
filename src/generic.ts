@@ -65,25 +65,28 @@ console.log(blogResponse);
 // Recap interface generic;
 
 
-interface PlayDetails {
+interface PlayerDetails {
     name : string,
     age : number,
     internationalGoals : number,
     country : string,
-    clubs : string[]
+    clubs : string[],
 }
 
 interface PlayerApiResponse<T> {
     data : T,
     success : boolean,
-    statusCode : number
+    statusCode : number,
+    message : string
 }
 
-type PlayerResponse = PlayerApiResponse<PlayDetails>
+type PlayerResponse = PlayerApiResponse<PlayerDetails>
 
 const playerResponse : PlayerResponse = {
     success : true,
     statusCode : 205,
+    message : "Data Crashed",
+
     data : {
         name : "Neymar jr",
         age : 34,
@@ -93,5 +96,26 @@ const playerResponse : PlayerResponse = {
     }
 }
 
-console.log(playerResponse);
-console.log(playerResponse.data);
+
+
+// Generic Type to handle Promises
+
+const fetchPlayer = async () : Promise<PlayerDetails | undefined> => {
+    try {
+        const res = await fetch("/api/player");
+        const data = (await res.json() as PlayerApiResponse<PlayerDetails>);
+
+        if(!res.ok || !data.success) {
+            throw new Error(`Something went wrong${data.message}`)
+        }
+
+        return data.data
+    } catch (error) {
+        console.log(error);
+        throw error
+    }
+}
+
+const getPlayer = await fetchPlayer();
+
+console.log(getPlayer?.name);
