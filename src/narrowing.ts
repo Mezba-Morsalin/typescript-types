@@ -146,3 +146,31 @@ const moreEqual = (x : string | string[] | null) => {
 }
 
 moreEqual("Mezba")
+
+// in type
+
+type Bird = {
+    fly : () => void
+}
+
+type Fish = {
+    swim : () => void;
+}
+
+const bird : Bird = {
+    fly : () => console.log("Bird is Flying")
+}
+const fish : Fish = {
+    swim : () => console.log("Fish is Swimming")
+}
+
+const getAnimals = (animal : Bird | Fish) => {
+    if ("fly" in animal) {
+        console.log(animal.fly);
+        return;
+    }
+    console.log(animal.swim);
+}
+
+getAnimals(bird)
+getAnimals(fish)
