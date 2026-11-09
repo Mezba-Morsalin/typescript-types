@@ -174,3 +174,36 @@ const getAnimals = (animal : Bird | Fish) => {
 
 getAnimals(bird)
 getAnimals(fish)
+
+
+// Instance of 
+
+const date = new Date();
+const err = new Error("Something Went Wrong")
+
+console.log(date instanceof Date);
+console.log(err instanceof Error);
+
+
+const checkInstance = (value : Date | string) => {
+    if (value instanceof Date) {
+        console.log(value.toISOString());
+        return;
+    }
+    const date = new Date(value);
+    console.log(date.toISOString());
+}
+checkInstance("2026-11-16")
+
+
+const dateInstance = (value : Date | string) => {
+    if (value instanceof Date) {
+        console.log(value.toISOString());
+        return;
+    }
+
+    const date = new Date(value);
+    console.log(date.toISOString());
+}
+
+dateInstance(new Date("2026-11-09"))
