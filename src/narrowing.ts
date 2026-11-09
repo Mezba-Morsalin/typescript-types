@@ -98,3 +98,22 @@ const getPlayer = (player : Player) => {
 }
 
 getPlayer(player)
+
+
+// Caveat typeof
+
+const printAll = (x : string | string[] | null) => {
+    if (x && typeof x === "object") {
+        for(const value of x) {
+            console.log(value);
+        }
+    }
+    else if (typeof x === "string") {
+        console.log(x);
+    }
+    else {
+        console.log("");
+    }
+}
+
+printAll(null)
